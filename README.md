@@ -1,3 +1,5 @@
-# Example_config
-
-This can be used as an example custom config for NvChad. Do check the https://github.com/NvChad/nvcommunity
+# neovim-config
+neovim config
+```pwsh
+git clone https://github.com/icediver/neovim-config.git ~/.config/nvim/lua/custom
+```
