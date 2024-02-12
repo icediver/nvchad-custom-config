@@ -9,8 +9,8 @@ M.ui = {
      style = "bordered"
   }, -- borderless / bordered
 
-  theme = "tokyodark",
-  theme_toggle = { "tokyodark", "one_light" },
+  theme = "chadracula",
+  theme_toggle = { "chadracula", "one_light" },
 
   hl_override = highlights.override,
   hl_add = highlights.add,

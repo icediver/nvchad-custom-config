@@ -184,7 +184,8 @@ local plugins = {
   }, -- To make a plugin not be loaded
   {
     "Exafunction/codeium.vim",
-    lazy = false,
+    -- lazy = false,
+    event="VeryLazy"
   },
   {
     "nvimdev/lspsaga.nvim",
@@ -207,7 +208,7 @@ local plugins = {
         })
     end
   },
-  { "norcalli/nvim-colorizer.lua" },
+  -- { "norcalli/nvim-colorizer.lua" },
   {"HiPhish/rainbow-delimiters.nvim",
     event = "LspAttach",
     config = function ()
@@ -219,10 +220,31 @@ local plugins = {
 
 
   },
-  -- {
-  --   "NvChad/nvim-colorizer.lua",
-  --   enabled = false
-  -- },
+  {"rest-nvim/rest.nvim",
+    dependencies = {
+        'nvim-lua/plenary.nvim',
+    },
+    ft = 'http',
+    config = function()
+      require "custom.configs.rest"
+    end,
+  },
+  {
+    "NvChad/nvim-colorizer.lua",
+    -- enabled = true
+    opts = {
+      user_default_options = {
+        tailwind = true,
+        css = true,
+      }
+    }
+  },
+     --  {
+	-- 	"themaxmarchuk/tailwindcss-colors.nvim",
+	-- 	config = function()
+	-- 		require("tailwindcss-colors").setup()
+	-- 	end,
+	-- },
 
   -- All NvChad plugins are lazy-loaded by default
   -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`

@@ -5,4 +5,8 @@
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
-vim.g.vscode_snippets_path = "./snippets"
+--vim.g.vscode_snippets_path = "~/.local/share/nvim/snippets"
+
+vim.g.vscode_snippets_path = "~/.config/nvim/lua/custom/snippets"
+vim.g.lua_snippets_path = "~/.config/nvim/lua/custom/snippets/snippets.lua"
+vim.opt.relativenumber = true
