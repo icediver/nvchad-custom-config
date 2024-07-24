@@ -97,6 +97,7 @@ local plugins = {
       "haydenmeade/neotest-jest",
     },
   },
+  { "nvim-neotest/nvim-nio" },
   {
     "mfussenegger/nvim-dap",
     config = function()
@@ -205,6 +206,11 @@ local plugins = {
     config = function()
         require("nvim-surround").setup({
             -- Configuration here, or leave empty to use defaults
+        surrounds = {
+          ["/"] = {
+            add = { "{/*", "*/}" }
+          },
+        }
         })
     end
   },
@@ -226,6 +232,7 @@ local plugins = {
     },
     ft = 'http',
     config = function()
+
       require "custom.configs.rest"
     end,
   },
@@ -239,7 +246,51 @@ local plugins = {
       }
     }
   },
-     --  {
+  {
+    "heavenshell/vim-jsdoc",
+    -- build = "make install",
+    ft = {"javascript", "typescript", "typescriptreact", "javascriptreact"},
+    keys = {
+      { "<leader>jd", "<cmd>JsDoc<cr>", desc = "JsDoc" },
+    },
+
+    config = function()
+			vim.g.jsdoc_lehre_path = "/Users/icediver/.nvm/versions/node/v18.17.0/bin/lehre"
+    end,
+  },
+  {
+    "brenton-leighton/multiple-cursors.nvim",
+    version = "*",  -- Use the latest tagged version
+    opts = {},  -- This causes the plugin setup function to be called
+    keys = {
+      {"<C-Down>", "<Cmd>MultipleCursorsAddDown<CR>", mode = {"n", "i"}},
+      {"<C-j>", "<Cmd>MultipleCursorsAddDown<CR>"},
+      {"<C-Up>", "<Cmd>MultipleCursorsAddUp<CR>", mode = {"n", "i"}},
+      -- {"<C-k>", "<Cmd>MultipleCursorsAddUp<CR>"},
+      {"<C-LeftMouse>", "<Cmd>MultipleCursorsMouseAddDelete<CR>", mode = {"n", "i"}},
+      {"<Leader>a", "<Cmd>MultipleCursorsAddMatches<CR>", mode = {"n", "x"}},
+      {"<Leader>A", "<Cmd>MultipleCursorsAddMatchesV<CR>", mode = {"n", "x"}},
+      {"<Leader>n", "<Cmd>MultipleCursorsAddJumpNextMatch<CR>", mode = {"n", "x"}},
+      {"<Leader>N", "<Cmd>MultipleCursorsJumpNextMatch<CR>"},
+    },
+  },
+{
+    "stevearc/dressing.nvim",
+    lazy = false,
+    opts = {},
+  },
+{
+    "windwp/nvim-ts-autotag",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-ts-autotag").setup({
+        ["tsx"] = {
+          ensble_rename = true
+        }
+      })
+    end,
+  },
+  --  {
 	-- 	"themaxmarchuk/tailwindcss-colors.nvim",
 	-- 	config = function()
 	-- 		require("tailwindcss-colors").setup()

@@ -15,6 +15,8 @@ M.treesitter = {
     "markdown_inline",
     "prisma",
     "go",
+    -- "tailwindcss",
+    -- "tailwindcss-language-server",
   },
   indent = {
     enable = true,
@@ -35,6 +37,7 @@ M.mason = {
     "node-debug2-adapter",
     "gopls",
     "gradle_ls",
+    "tailwindcss-language-server",
   },
 }
 

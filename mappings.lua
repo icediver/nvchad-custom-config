@@ -8,11 +8,11 @@ M.general = {
     ["<leader>ll"] = { "<cmd>TroubleToggle<CR>", "Open Trouble" },
     ["<leader>ft"] = { "<cmd>TodoTelescope<CR>", "Find Todo" },
     ["\\"] = { "<cmd>:vsplit <CR>", "Vertical split" },
-    ["<C-]>"] = {
-      function()
-        require("nvterm.terminal").toggle "vertical"
-      end,
-    },
+    -- ["<C-]>"] = {
+    --   function()
+    --     require("nvterm.terminal").toggle "vertical"
+    --   end,
+    -- },
     ["<C-\\>"] = {
       function()
         require("nvterm.terminal").toggle "float"
@@ -84,11 +84,11 @@ M.general = {
     },
   },
   t = {
-    ["<C-]>"] = {
-      function()
-        require("nvterm.terminal").toggle "vertical"
-      end,
-    },
+    -- ["<C-]>"] = {
+    --   function()
+    --     require("nvterm.terminal").toggle "vertical"
+    --   end,
+    -- },
     ["<C-\\>"] = {
       function()
         require("nvterm.terminal").toggle "float"
@@ -99,6 +99,27 @@ M.general = {
 vim.keymap.set("i", "<C-g>", function()
   return vim.fn["codeium#Accept"]()
 end, { expr = true })
--- more keybinds!
 
+-- vim.keymap.set('i', '<c-;>',
+--   function()
+--     return vim.fn['codeium#CycleCompletions'](1)
+--   end, { expr = true, silent = true })
+M.disabled = {
+  n = {
+    ["<leader>h"] = {},
+  },
+}
+
+-- M.codeium = {
+--   plugin = true,
+--    i = {
+--   ["<C-f"] = {
+--     function()
+--       return vim.fn['codeium#CycleCompletions'](1)
+--       -- require("codeium").CycleCompletions(1)
+--       end,
+--   }
+--
+--   }
+-- }
 return M

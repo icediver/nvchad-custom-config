@@ -1,5 +1,8 @@
 local M = {
   filetype = {
+    lua = {
+      require("formatter.filetypes.lua").stylua
+    },
     javascriptreact = {
       require("formatter.filetypes.javascriptreact").prettier,
     },
